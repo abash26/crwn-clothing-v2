@@ -20,7 +20,7 @@ const CartDropdown = () => {
   };
 
   return (
-    <CartDropdownContainer>
+    <CartDropdownContainer data-cy="cart-dropdown">
       <CartItems>
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
@@ -28,7 +28,7 @@ const CartDropdown = () => {
           <EmptyMessage>Your cart is empty</EmptyMessage>
         )}
       </CartItems>
-      <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+      <Button onClick={goToCheckoutHandler} data-cy="checkout">GO TO CHECKOUT</Button>
     </CartDropdownContainer>
   );
 };

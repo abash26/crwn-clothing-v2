@@ -13,14 +13,14 @@ import {
 } from './product-card.styles';
 
 const ProductCard = ({ product }) => {
-  const { name, price, imageUrl } = product;
+  const { name, price, imageUrl, id } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
-    <ProductCartContainer>
+    <ProductCartContainer data-cy={`product${id}`}>
       <img src={imageUrl} alt={`${name}`} />
       <Footer>
         <Name>{name}</Name>
@@ -29,6 +29,7 @@ const ProductCard = ({ product }) => {
       <Button
         buttonType={BUTTON_TYPE_CLASSES.inverted}
         onClick={addProductToCart}
+        data-cy="add"
       >
         Add to card
       </Button>
